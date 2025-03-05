@@ -39,8 +39,8 @@ function jQueryScripts() {
 	if (slickSelector) {
 		loadJS("assets/js/slick.min.js", false);
 		loadJS("assets/js/slick-config.js", true);
-		loadCSS("assets/css/slick.css");
-		loadCSS("assets/css/slick-theme.css");
+		//loadCSS("assets/css/slick.css");
+		//loadCSS("assets/css/slick-theme.css");
 	}
 	// jQuery Ripples plugin
 	const ripplesSelector = document.querySelector(".ripples");

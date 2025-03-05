@@ -1,0 +1,19 @@
+{
+  "name": "scss-compiler",
+  "version": "1.0.0",
+  "description": "A simple SCSS compiler setup using Sass and JS minifier",
+  "scripts": {
+    "prebuild": "rm -rf dist/css/compiled.min.css dist/js/compiled.min.js", 
+    "build:scss": "sass assets/scss/main.scss dist/css/compiled.css", 
+    "build:scss:min": "sass assets/scss/main.scss dist/css/compiled.min.css --style=compressed", 
+    "watch:scss": "sass --watch assets/scss/main.scss:dist/css/compiled.css", 
+    "build": "npm run prebuild && npm run build:scss && npm run build:scss:min",
+    "watch": "concurrently --kill-others-on-fail \"npm run watch:scss\""
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "sass": "^1.75.0",
+    "uglify-js": "^3.17.4",
+    "concurrently": "^8.2.2"
+  }
+}
