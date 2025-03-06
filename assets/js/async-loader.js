@@ -21,13 +21,13 @@ Vanilla JS scripts.
 (function() {
 	// Date and Time
 	const dateSelector = document.getElementById("Date");
-	if (dateSelector) loadJS("assets/js/datetime.js", true);
+	if (dateSelector) loadJS("dist/js/datetime.min.js", true);
 	// Search
 	const textareaSelector = document.querySelector(".textarea");
-	if (textareaSelector) loadJS("assets/js/search.js", true);
+	if (textareaSelector) loadJS("dist/js/search.min.js", true);
 	// Stars
 	const starsSelector = document.querySelector(".stars");
-	if (starsSelector) loadJS("assets/js/stars.js", true);
+	if (starsSelector) loadJS("dist/js/stars.min.js", true);
 })();
 
 /*
@@ -38,7 +38,7 @@ function jQueryScripts() {
 	const slickSelector = document.querySelector(".slick-start");
 	if (slickSelector) {
 		loadJS("assets/js/slick.min.js", false);
-		loadJS("assets/js/slick-config.js", true);
+		loadJS("dist/js/slick-config.min.js", true);
 		//loadCSS("assets/css/slick.css");
 		//loadCSS("assets/css/slick-theme.css");
 	}
@@ -46,7 +46,7 @@ function jQueryScripts() {
 	const ripplesSelector = document.querySelector(".ripples");
 	if (ripplesSelector) {
 		loadJS("assets/js/jquery.ripples.min.js", false);
-		loadJS("assets/js/jquery.ripples-config.js", true);
+		loadJS("dist/js/jquery.ripples-config.min.js", true);
 	}
 }
 

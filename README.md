@@ -51,7 +51,9 @@ Privacy blur/unblur on hover `<ul class="blur">`
 
 1. Clone this repo to a location on your hard disk, e.g. `C:/StartPages/`
 2. Set your browser homepage to `file:///C:/StartPages/startpage/index.html`
-3. Customise to your delight
+3. Run `npm install` in the repo's location to install dev dependencies
+4. Customise to your delight
+5. Run `npm run build` to compile any changed SCSS or JavaScript
 
 ## Currently implemented theme classes:
 
