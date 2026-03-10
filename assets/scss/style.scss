@@ -208,6 +208,7 @@ canvas {
   border-color: var(--border-color);
   border-width: 1.5px;
   overflow: hidden;
+  transition: border-color .25s ease-in-out;
 }
 
 .container {
@@ -298,10 +299,6 @@ canvas {
   right: 10px;
   font-size: 10px;
   opacity: 0.15;
-
-  a {
-    transition: color .25s ease-in-out;
-  }
 }
 
 .image {
@@ -317,6 +314,13 @@ canvas {
     background-image: var(--image);
     background-size: var(--background-size);
     background-position: var(--background-position);
+    outline: none;
+
+    &.border {
+      &:hover, &:focus-visible {
+        border-color: var(--color-link-hover);
+      }
+    }
   }
 }
 
@@ -387,10 +391,10 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-}
 
-.right-container:hover .bookmarks a {
-  transition: color .25s ease-in-out;
+  &:last-child {
+    margin-bottom: 15px;
+  }
 }
 
 .links {
@@ -431,7 +435,13 @@ p {
   }
 }
 
+.title a {
+  color: var(--color-link-title);
+}
+
 a {
+  transition: color .25s ease-in-out;
+
   &:link {
     text-decoration: none;
     color: var(--color-link);
@@ -444,10 +454,6 @@ a {
   &:hover {
     color: var(--color-link-hover);
   }
-}
-
-.title a {
-  color: var(--color-link-title);
 }
 
 /* Effects */
@@ -471,7 +477,7 @@ ul.blur:hover {
   animation: blinking 1s ease-in-out infinite;
   opacity: 1;
   position: relative;
-  margin-left: 5px;
+  margin-left: 10px;
   order: 0;
 }
 
@@ -489,12 +495,11 @@ body {
   margin: 0 auto 40px;
   background: transparent;
   width: 100%;
-  overflow: hidden;
 
   p {
     display: flex;
     position: relative;
-    margin: 0 20px;
+    margin: 0 0 0 20px;
     padding: 0;
     width: 100%;
   }
@@ -517,6 +522,7 @@ body {
 
   input[type=text] {
     position: relative;
+    width: 100%;
     height: 46px;
     left: -20px;
     text-indent: 1px;
@@ -539,7 +545,7 @@ body {
 
 @media only screen and (min-width: 901px) {
   #search p {
-    margin: 0 20%;
+    margin: 0 0 0 20%;
   }
 }
 
@@ -576,11 +582,18 @@ input[type=text]:focus ~ span.blinking, textarea:focus ~ span.blinking {
 
 .sr-only {
   position: absolute;
-  left: -9999px;
-  top: auto;
-  width: 1px;
-  height: 1px;
+  left: 10px;
+  top: 10px;
+  padding: 2px;
   overflow: hidden;
+  opacity: 0;
+  transition: color .25s ease-in-out, opacity .25s ease-in-out, outline .25s ease-in-out;
+  z-index: 9999;
+}
+
+.skip-link:focus {
+  opacity: 1;
+  background: var(--color-bg);
 }
 
 /* Custom Scrollbar */
@@ -633,5 +646,14 @@ body {
 
   100% {
     opacity: 1;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
   }
 }

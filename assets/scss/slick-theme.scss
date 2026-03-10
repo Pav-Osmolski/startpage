@@ -60,7 +60,8 @@
   color: var(--color-fg);
 }
 
-.slick-prev:hover:before, .slick-next:hover:before {
+.slick-prev:hover:before, .slick-next:hover:before,
+.slick-prev:focus-visible:before, .slick-next:focus-visible:before {
   opacity: 1;
   color: var(--color-link-hover);
 }
