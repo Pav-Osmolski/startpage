@@ -1,20 +1,19 @@
 {
-  "name": "scss-compiler",
-  "version": "1.0.0",
-  "description": "A simple SCSS compiler setup using Sass and JS minifier",
+  "name": "pav-startpage",
+  "version": "1.0.1",
+  "private": true,
+  "description": "Asset build configuration for the Startpage project, compiling SCSS and minifying JavaScript.",
   "scripts": {
     "prebuild": "rm -f dist/css/compiled.min.css dist/js/*.min.js",
-    "build:scss": "sass assets/scss/main.scss dist/css/compiled.css",
+    "build:scss": "sass assets/scss/main.scss dist/css/compiled.css --source-map",
     "build:scss:min": "sass assets/scss/main.scss dist/css/compiled.min.css --style=compressed",
-    "build:js": "node -e \"require('fs').readdirSync('assets/js').filter(f => f.endsWith('.js') && !f.endsWith('.min.js')).forEach(f => require('child_process').execSync(`npx uglify-js assets/js/${f} -o dist/js/${f.replace(/\\.js$/, '.min.js')} --compress --mangle`, { stdio: 'inherit' }))\"",
+    "build:js": "node -e \"require('fs').readdirSync('assets/js').filter(f => f.endsWith('.js') && !f.endsWith('.min.js')).forEach(f => require('child_process').execSync(`uglifyjs assets/js/${f} -o dist/js/${f.replace(/\\.js$/, '.min.js')} --compress --mangle`, { stdio: 'inherit', shell: true }))\"",
     "build": "npm run prebuild && npm run build:scss && npm run build:scss:min && npm run build:js",
-    "watch:scss": "sass --watch assets/scss/main.scss:dist/css/compiled.css",
-    "watch": "concurrently --kill-others-on-fail \"npm run watch:scss\""
+    "watch:scss": "sass --watch assets/scss/main.scss:dist/css/compiled.css --source-map",
+    "watch": "npm run watch:scss"
   },
-  "dependencies": {},
   "devDependencies": {
     "sass": "^1.75.0",
-    "uglify-js": "^3.17.4",
-    "concurrently": "^8.2.2"
+    "uglify-js": "^3.17.4"
   }
 }

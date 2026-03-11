@@ -366,9 +366,8 @@ body {
 .category {
   display: flex;
   flex-direction: column;
-  width: 25%;
-  flex: 1 1 auto;
   align-items: center;
+  flex: 0 0 25%;
 
   > .slick-start {
     width: 180px;
@@ -377,13 +376,13 @@ body {
 
 @media only screen and (max-width: 1230px) {
   .category {
-    width: 50%;
+    flex-basis: 50%;
   }
 }
 
 @media only screen and (max-width: 400px) {
   .category {
-    width: 100%;
+    flex-basis: 100%;
   }
 }
 
@@ -391,6 +390,7 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  align-items: stretch;
 
   &:last-child {
     margin-bottom: 15px;
