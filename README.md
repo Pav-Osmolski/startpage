@@ -1,10 +1,30 @@
-# ELDEN RING multi-theme browser startpage
+# Startpage – Accessible & Customisable Multi-Theme Browser Homepage
+
+![GitHub last commit](https://img.shields.io/github/last-commit/Pav-Osmolski/startpage)
+![GitHub repo size](https://img.shields.io/github/repo-size/Pav-Osmolski/startpage)
+![GitHub License](https://img.shields.io/github/license/Pav-Osmolski/startpage)
+![Accessibility](https://img.shields.io/badge/accessibility-WCAG%20friendly-green)
+![HTML](https://img.shields.io/badge/HTML-semantic-orange)
+![SCSS](https://img.shields.io/badge/SCSS-modular-pink)
+![JavaScript](https://img.shields.io/badge/JavaScript-lightweight-yellow)
 
 [Live Preview](https://pav-osmolski.github.io/startpage/)
 
-Please feel free to fork and make your own changes!
+A fast, lightweight multi-theme browser start page designed for quick access to frequently used links, search, and daily tools. The interface focuses on a clean layout, minimal distractions, and strong usability.
 
-## List of changes:
+The project is built with semantic HTML, modular SCSS, and small JavaScript components, with attention given to accessibility, keyboard navigation, and performance.
+
+This project is a fork of the excellent [kencx/startpage](https://github.com/kencx/startpage). It builds on the original concept with design changes, accessibility improvements, and ongoing refinements.
+
+## 📚 Table of Contents
+
+- [📝 List of Changes](#list-of-changes)
+- [🧩 Optional Add-ons](#optional-add-ons)
+- [✨ Features](#features)
+- [⬇️ How to Install](#how-to-install)
+- [🎨 Currently Implemented Theme Classes](#currently-implemented-theme-classes)
+
+## List of Changes
 
 - Converted to CSS Flex
 - Fully responsive layout
@@ -24,16 +44,16 @@ Please feel free to fork and make your own changes!
 - Colour scheme: ELDEN RING, mostly dictated by the `--hue-rotate` variable
 - ELDEN RING gif: [Here](https://pinargokoglu.tumblr.com/post/675069910947364864/elden-ring)
 
-## Optional add-ons:
+## Optional Add-ons
 These add-ons will only load when required, based on whether the relevant element class is detected in the DOM. You can configure the JavaScript add-on list within `async-loader.js`.
-- [slick carousel](https://kenwheeler.github.io/slick/) `<div class="links slick-start">`
+- [accessible slick carousel](https://github.com/Accessible360/accessible-slick) `<div class="links slick-start">`
 - [jQuery Ripples](https://github.com/sirxemic/jquery.ripples) `<body class="fade-in ripples">`
 - [Date/Time](https://ricardometring.com/real-time-date-time-with-javascript) `<h1 id="#Date">`
 - Animating stars `<body class="fade-in stars">`
 - Search `<body class="fade-in search">`
 - [jQuery](https://jquery.com/download/) `<body class="fade-in jquery">`
 
-## Features:
+## Features
 
 Search functionality `<body class="fade-in search">`. The default is set to Google. You can change the search engine by modifying `action="https://www.google.com/search"`
 
@@ -47,7 +67,7 @@ Privacy blur/unblur on hover `<ul class="blur">`
 
 ![privacy blur](screenshots/pav-startpage-privacy.png)
 
-## How to install:
+## How to Install
 
 1. Clone this repo to a location on your hard disk, e.g. `C:/StartPages/`
 2. Set your browser homepage to `file:///C:/StartPages/startpage/index.html`
@@ -55,7 +75,7 @@ Privacy blur/unblur on hover `<ul class="blur">`
 4. Customise to your delight
 5. Run `npm run build` to compile any changed SCSS or JavaScript
 
-## Currently implemented theme classes:
+## Currently Implemented Theme Classes
 
 ELDEN RING Press Start `<html lang="en" class="default eldenring-start">`
 
@@ -76,3 +96,5 @@ ELDEN RING Ranni's Dark Moon `<html lang="en" class="default eldenring-ranni-dar
 Vapor by [nwvh](https://github.com/nwvh/startpage) `<html lang="en" class="default vapor">`
 
 ![startpage vapor](screenshots/startpage-vapor.jpg)
+
+Please feel free to fork and make your own changes!
