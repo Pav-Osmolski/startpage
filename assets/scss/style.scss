@@ -185,10 +185,8 @@ canvas {
   min-width: 1px;
   min-height: 52px;
   margin: 25px 0;
-}
 
-@media only screen and (max-width: 900px) {
-  #Date {
+  @media only screen and (max-width: 900px) {
     display: flex;
     align-items: flex-end;
     height: 110px;
@@ -217,6 +215,27 @@ canvas {
   min-height: 100%;
   position: relative;
   justify-content: flex-end;
+
+  &:before {
+    content: "";
+    background-image: var(--background-image);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    filter: var(--background-filter);
+    opacity: var(--background-opacity);
+  }
+
+  @media only screen and (max-width: 900px) {
+    flex-direction: column-reverse;
+  }
 }
 
 .container-inner {
@@ -228,29 +247,6 @@ canvas {
   position: relative;
   align-items: center;
   max-width: var(--grid-width);
-}
-
-.container::before {
-  content: "";
-  background-image: var(--background-image);
-  background-position: center;
-  background-size: cover;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  filter: var(--background-filter);
-  opacity: var(--background-opacity);
-}
-
-@media only screen and (max-width: 900px) {
-  .container {
-    flex-direction: column-reverse;
-  }
 }
 
 .left-container {
@@ -265,20 +261,16 @@ canvas {
   -webkit-user-select: none;
   user-select: none;
   transition: opacity .25s ease-in-out, visibility .25s ease-in-out;
-}
 
-@media only screen and (max-width: 900px) {
-  .left-container {
+  @media only screen and (max-width: 900px) {
     margin-left: 0;
     position: absolute;
     top: 7px;
     left: calc(50% - 220px);
     width: 110px;
   }
-}
 
-@media only screen and (max-width: 500px) {
-  .left-container {
+  @media only screen and (max-width: 500px) {
     visibility: hidden;
     opacity: 0;
   }
@@ -322,10 +314,8 @@ canvas {
       }
     }
   }
-}
 
-@media only screen and (max-width: 900px) {
-  .image {
+  @media only screen and (max-width: 900px) {
     aspect-ratio: 1/1;
   }
 }
@@ -343,23 +333,19 @@ body {
   &:not(.search) .head-search, &.search .head {
     display: none;
   }
-}
 
-@media only screen and (max-width: 900px) {
-  body.search .right-container {
-    margin-top: 127px;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  body.search .right-container {
-    margin-top: 0;
-  }
-}
-
-@media only screen and (max-width: 800px) {
-  body.search .right-container {
-    transition: .25s margin ease-in-out;
+  &.search {
+    .right-container {
+      @media only screen and (max-width: 900px) {
+        margin-top: 127px;
+      }
+      @media only screen and (max-width: 500px) {
+        margin-top: 0;
+      }
+      @media only screen and (max-width: 800px) {
+        transition: .25s margin ease-in-out;
+      }
+    }
   }
 }
 
@@ -372,16 +358,11 @@ body {
   > .slick-start {
     width: 180px;
   }
-}
 
-@media only screen and (max-width: 1230px) {
-  .category {
+  @media only screen and (max-width: 1230px) {
     flex-basis: 50%;
   }
-}
-
-@media only screen and (max-width: 400px) {
-  .category {
+  @media only screen and (max-width: 400px) {
     flex-basis: 100%;
   }
 }
@@ -427,10 +408,8 @@ li {
 
 p {
   margin: 0 0 40px;
-}
 
-@media only screen and (max-width: 900px) {
-  p {
+  @media only screen and (max-width: 900px) {
     margin: 40px 0;
   }
 }
@@ -502,6 +481,10 @@ body {
     margin: 0 0 0 20px;
     padding: 0;
     width: 100%;
+
+    @media only screen and (min-width: 901px) {
+      margin: 0 0 0 20%;
+    }
   }
 
   .search-field {
@@ -541,16 +524,8 @@ body {
   p > label.prefix {
     flex: 0 0 auto;
   }
-}
 
-@media only screen and (min-width: 901px) {
-  #search p {
-    margin: 0 0 0 20%;
-  }
-}
-
-@media only screen and (max-width: 900px) {
-  #search {
+  @media only screen and (max-width: 900px) {
     margin: 30px 0 12px;
   }
 }
@@ -558,10 +533,6 @@ body {
 input[type=text]:focus ~ span.blinking, textarea:focus ~ span.blinking {
   opacity: 0;
   visibility: hidden;
-}
-
-.search:focus {
-  outline: none;
 }
 
 /* Slick Buttons */
@@ -582,18 +553,34 @@ input[type=text]:focus ~ span.blinking, textarea:focus ~ span.blinking {
 
 .sr-only {
   position: absolute;
-  left: 10px;
-  top: 10px;
-  padding: 2px;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
   overflow: hidden;
-  opacity: 0;
-  transition: color .25s ease-in-out, opacity .25s ease-in-out, outline .25s ease-in-out;
-  z-index: 9999;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
-.skip-link:focus {
-  opacity: 1;
+.skip-link {
+  position: fixed;
+  z-index: 1001;
+  outline-offset: 0;
+  padding: 2px 5px;
+  top: 15px;
+  left: 15px;
   background: var(--color-bg);
+  transition: all .25s ease-in-out;
+
+  /* hide visually but keep focusable */
+  transform: translateY(-150%);
+  opacity: 0;
+
+  &:focus {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* Custom Scrollbar */
