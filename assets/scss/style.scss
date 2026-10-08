@@ -425,6 +425,10 @@ ul.blur:hover, ul.blur:focus-within { filter: none; }
   outline-offset: 2px;
 }
 
+.slick-arrow:focus-visible {
+  border-radius: 50%;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
