@@ -1,19 +1,21 @@
 {
   "name": "pav-startpage",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
-  "description": "Asset build configuration for the Startpage project, compiling SCSS and minifying JavaScript.",
+  "description": "A customisable, multi-theme browser start page.",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
-    "prebuild": "rm -f dist/css/compiled.min.css dist/js/*.min.js",
-    "build:scss": "sass assets/scss/main.scss dist/css/compiled.css --source-map",
-    "build:scss:min": "sass assets/scss/main.scss dist/css/compiled.min.css --style=compressed",
-    "build:js": "node -e \"require('fs').readdirSync('assets/js').filter(f => f.endsWith('.js') && !f.endsWith('.min.js')).forEach(f => require('child_process').execSync(`uglifyjs assets/js/${f} -o dist/js/${f.replace(/\\.js$/, '.min.js')} --compress --mangle`, { stdio: 'inherit', shell: true }))\"",
-    "build": "npm run prebuild && npm run build:scss && npm run build:scss:min && npm run build:js",
-    "watch:scss": "sass --watch assets/scss/main.scss:dist/css/compiled.css --source-map",
-    "watch": "npm run watch:scss"
+    "build": "node scripts/build.cjs",
+    "build:scss": "node scripts/build.cjs css",
+    "build:js": "node scripts/build.cjs js",
+    "watch": "node scripts/build.cjs --watch",
+    "start": "node scripts/serve.cjs",
+    "test": "node --test"
   },
   "devDependencies": {
-    "sass": "^1.75.0",
-    "uglify-js": "^3.17.4"
+    "sass": "^1.105.1",
+    "uglify-js": "^3.19.3"
   }
 }
