@@ -744,8 +744,15 @@ ul.blur:hover, ul.blur:focus-within {
 }
 
 .slick-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 44px;
   height: 44px;
+}
+
+.slick-arrow::before {
+  transform: translateY(1px);
 }
 
 .slick-arrow:focus-visible, .slick-dots button:focus-visible {

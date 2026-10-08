@@ -419,7 +419,19 @@ ul.blur:hover, ul.blur:focus-within { filter: none; }
 }
 
 .slick-start.slick-initialized { margin-bottom: 28px; }
-.slick-arrow { width: 44px; height: 44px; }
+.slick-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+}
+
+.slick-arrow::before {
+  // The Slick font's arrow glyph sits 1px above its line box's vertical center.
+  transform: translateY(1px);
+}
+
 .slick-arrow:focus-visible, .slick-dots button:focus-visible {
   outline: 2px solid var(--color-link-hover);
   outline-offset: 2px;
