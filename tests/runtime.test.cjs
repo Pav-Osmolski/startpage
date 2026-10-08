@@ -7,12 +7,14 @@ const vm = require('node:vm');
 const source = name => fs.readFileSync(path.join(__dirname, '../assets/js', name), 'utf8');
 const flush = () => new Promise(resolve => setImmediate(resolve));
 
-function loader({ selectors = [], reduced = false, date = true } = {}) {
+function loader({ selectors = [], reduced = false, date = true, version = null } = {}) {
   const scripts = [];
   const warnings = [];
   vm.runInNewContext(source('async-loader.js'), {
     window: { matchMedia: () => ({ matches: reduced }) },
+    URL,
     document: {
+      currentScript: version ? { src: `https://example.test/dist/js/async-loader.min.js?v=${version}` } : null,
       getElementById: () => date,
       querySelector: selector => selectors.includes(selector),
       createElement: () => ({}),
@@ -58,6 +60,18 @@ test('reduced motion skips canvas and water effects while keeping navigation', a
 test('plain textarea search loads without jQuery', () => {
   const { scripts } = loader({ selectors: ['.textarea'], date: false });
   assert.deepEqual(scripts.map(script => script.src), ['dist/js/search.min.js']);
+});
+
+test('the loader versions every dependency, including plugins and configuration', async () => {
+  const { scripts } = loader({ selectors: ['.slick-start'], version: 'release123' });
+  assert.equal(scripts[0].src, 'dist/js/datetime.min.js?v=release123');
+  assert.equal(scripts[1].src, 'assets/js/jquery.min.js?v=release123');
+  scripts[1].onload();
+  await flush();
+  assert.equal(scripts[2].src, 'assets/js/slick.min.js?v=release123');
+  scripts[2].onload();
+  await flush();
+  assert.equal(scripts[3].src, 'dist/js/slick-config.min.js?v=release123');
 });
 
 test('textarea Enter submits; Shift+Enter and IME composition remain available', () => {

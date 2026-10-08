@@ -79,6 +79,8 @@ Privacy blur/unblur on hover `<ul class="blur">`
 
 ### Development commands
 
+Builds update the stylesheet and loader URLs in `index.html` with content-based `?v=` versions. The loader passes its version to its dependent scripts. Unchanged assets keep the same version; changes produce a new URL so browsers fetch the updated files. Commit the generated `index.html` along with `dist/`.
+
 | Command | Purpose |
 | --- | --- |
 | `npm run build` | Compile expanded and compressed CSS with relative source maps, and minify the project's JavaScript |

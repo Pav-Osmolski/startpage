@@ -1,10 +1,12 @@
 (function() {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const loader = document.currentScript;
+  const version = loader ? new URL(loader.src).searchParams.get('v') : null;
 
   function loadScript(source) {
     return new Promise((resolve, reject) => {
       const script = document.createElement('script');
-      script.src = source;
+      script.src = version ? `${source}?v=${encodeURIComponent(version)}` : source;
       script.onload = resolve;
       script.onerror = () => reject(new Error(`Unable to load ${source}`));
       document.body.appendChild(script);

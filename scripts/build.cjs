@@ -1,6 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { fileURLToPath } = require('node:url');
+const { createHash } = require('node:crypto');
 const sass = require('sass');
 const uglify = require('uglify-js');
 
@@ -27,6 +28,25 @@ function build() {
       output.set(`dist/js/${name.replace(/\.js$/, '.min.js')}`, `${result.code}\n`);
     }
   }
+  const hash = contents => createHash('sha256').update(contents).digest('hex').slice(0, 12);
+  const indexPath = path.join(root, 'index.html');
+  let html = fs.readFileSync(indexPath, 'utf8').replace(/\r\n/g, '\n');
+  if (target !== 'js') {
+    const version = hash(output.get('dist/css/compiled.min.css'));
+    html = html.replace(/(href=["']dist\/css\/compiled\.min\.css)(?:\?[^"']*)?(["'])/g, `$1?v=${version}$2`);
+  }
+  if (target !== 'css') {
+    // One JavaScript version covers the loader and every script it loads.
+    const scripts = [...output].filter(([name]) => name.startsWith('dist/js/'));
+    for (const name of fs.readdirSync(path.join(root, 'assets/js')).sort()) {
+      if (name.endsWith('.min.js')) {
+        scripts.push([`assets/js/${name}`, fs.readFileSync(path.join(root, 'assets/js', name), 'utf8').replace(/\r\n/g, '\n')]);
+      }
+    }
+    const version = hash(JSON.stringify(scripts));
+    html = html.replace(/(src=["']dist\/js\/async-loader\.min\.js)(?:\?[^"']*)?(["'])/g, `$1?v=${version}$2`);
+  }
+  output.set('index.html', html);
   for (const [name, content] of output) {
     const destination = path.join(root, name);
     fs.mkdirSync(path.dirname(destination), { recursive: true });
