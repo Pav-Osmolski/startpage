@@ -1,8 +1,10 @@
-$(document).ready(function() {
-    $("#search-textarea").on("keypress", function (e) {
-        if (e.which === 13 && !e.shiftKey) {
-            e.preventDefault();
-            $(this).closest("form").submit();
-        }
-    });
-});
+(function() {
+  const textarea = document.getElementById('search-textarea');
+  if (!textarea) return;
+  textarea.addEventListener('keydown', event => {
+    if (event.key === 'Enter' && !event.shiftKey && !event.isComposing) {
+      event.preventDefault();
+      textarea.form.requestSubmit();
+    }
+  });
+})();

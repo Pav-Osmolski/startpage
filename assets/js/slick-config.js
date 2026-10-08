@@ -1,19 +1,14 @@
-$(document).ready(function() {
-	(function waitForSlick() {
-	    if ('slick' in $.fn && typeof $.fn.slick === 'function') {
-			$('.slick-start').slick({
-				arrows: true,
-				dots: true,
-				infinite: true,
-				speed: 150,
-				slidesToShow: 1,
-				slidesToScroll: 1,
-				fade: true,
-				cssEase: 'linear'
-			});
-	    }
-	    else {
-	        setTimeout(waitForSlick, 100);
-	    }
-	})()
+$(function() {
+  if (typeof $.fn.slick !== 'function') return;
+  $('.slick-start').slick({
+    arrows: true,
+    dots: true,
+    infinite: true,
+    speed: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 150,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    fade: true,
+    cssEase: 'linear',
+    regionLabel: 'More bookmarks'
+  });
 });

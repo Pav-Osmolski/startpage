@@ -1,14 +1,8 @@
-$(document).ready(function() {
-	(function waitForRipples() {
-	    if ('ripples' in $.fn && typeof $.fn.ripples === 'function') {
-			$('#startpage').ripples({
-				dropRadius: 50,
-				peturbance: 0.01,
-				resolution: 256,
-			});
-	    }
-	    else {
-	        setTimeout(waitForRipples, 100);
-	    }
-	})()
+$(function() {
+  if (typeof $.fn.ripples !== 'function' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  try {
+    $('#startpage').ripples({ dropRadius: 50, perturbance: 0.01, resolution: 256 });
+  } catch (error) {
+    console.warn('Water effect unavailable:', error.message);
+  }
 });

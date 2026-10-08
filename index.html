@@ -18,17 +18,18 @@
 	<div id="startpage" class="container">
 		<canvas id="canvas" aria-hidden="true"></canvas>
 		<div class="container-inner">
-			<header class="left-container" role="banner">
-				<h1 id="Date">&nbsp;</h1>
+			<header class="left-container">
+				<h1 class="sr-only">Startpage</h1>
+				<p id="Date"><time>Welcome back</time></p>
 
 				<div class="image">
 					<a class="border" href="https://github.com/Pav-Osmolski/startpage" draggable="false" title="visit github for updates" aria-label="View the startpage project on GitHub"></a>
 				</div>
 			</header>
 
-			<main id="main-content" class="right-container" role="main">
+			<main id="main-content" class="right-container" tabindex="-1">
 				<div class="head">
-					<p>&gt; cd ~/<span class="blinking">_</span></p>
+					<p>&gt; cd ~/<span class="blinking" aria-hidden="true">_</span></p>
 				</div>
 
 				<div class="head-search">
@@ -39,20 +40,21 @@
 					<form method="get" action="https://www.google.com/search" autocomplete="off" id="search" role="search">
 						<p>
 							<label id="searchLabel" class="prefix" for="search-input">&gt; search ~/</label>
-							<input class="search-field" id="search-input" type="text" name="q" maxlength="100" aria-labelledby="searchLabel" />
+							<input class="search-field" id="search-input" type="search" name="q" maxlength="100" enterkeyhint="search" spellcheck="false" required>
 							<!--
-							<textarea class="search-field" id="search-textarea" wrap="soft" type="text" name="q" maxlength="100" aria-labelledby="searchLabel"></textarea>
+							<textarea class="search-field" id="search-textarea" wrap="soft" name="q" maxlength="100" aria-labelledby="searchLabel"></textarea>
 							-->
-							<span class="blinking">_</span>
+							<span class="blinking" aria-hidden="true">_</span>
+							<button class="search-submit" type="submit" aria-label="Submit search">↵</button>
 						</p>
 					</form>
 				</div>
 
-				<nav class="bookmarks">
+				<nav class="bookmarks" aria-label="Daily bookmarks">
 					<div class="category">
 						<div class="links">
 							<ul>
-								<li class="title" role="heading" aria-level="2">daily</li>
+								<li class="title"><h2>daily</h2></li>
 								<li><a href="https://gmail.com">gmail</a></li>
 								<li><a href="https://facebook.com">facebook</a></li>
 								<li><a href="https://youtube.com">youtube</a></li>
@@ -64,7 +66,7 @@
 					<div class="category">
 						<div class="links">
 							<ul>
-								<li class="title" role="heading" aria-level="2">gaming</li>
+								<li class="title"><h2>gaming</h2></li>
 								<li><a href="https://todayin.games/">today in games</a></li>
 								<li><a href="https://ggmania.com/">gameguru mania</a></li>
 								<li><a href="https://www.nexusmods.com/eldenring?tab=popular+%2830+days%29">nexus mods</a></li>
@@ -76,7 +78,7 @@
 					<div class="category">
 						<div class="links">
 							<ul>
-								<li class="title" role="heading" aria-level="2">elden ring</li>
+								<li class="title"><h2>elden ring</h2></li>
 								<li><a href="https://jerp.tv/eldenring/spelltools/">spell tools</a></li>
 								<li><a href="https://gobluebro.github.io/Elden-Ring-Checklist/">checklist</a></li>
 								<li><a href="https://eldenring.wiki.fextralife.com/Interactive+Map">interactive map</a></li>
@@ -88,14 +90,14 @@
 					<div class="category">
 						<div class="links slick-start slick-single-arrow">
 							<ul>
-								<li class="title" role="heading" aria-level="2"><a href="https://reddit.com">reddit</a></li>
+								<li class="title"><h2><a href="https://reddit.com">reddit</a></h2></li>
 								<li><a href="https://reddit.com/r/programming/">r/programming</a></li>
 								<li><a href="https://reddit.com/r/explainlikeimfive/">r/explainlikeimfive</a></li>
 								<li><a href="https://reddit.com/r/gaming/">r/gaming</a></li>
 								<li><a href="https://reddit.com/r/mademesmile/">r/mademesmile</a></li>
 							</ul>
 							<ul>
-								<li class="title" role="heading" aria-level="2">computers</li>
+								<li class="title"><h2>computers</h2></li>
 								<li><a href="https://www.microcenter.com/search/search_results.aspx?N=4294966937&Ntk=all&sortby=match&myStore=true">microcenter</a></li>
 								<li><a href="https://www.evga.com/products/productlist.aspx?type=0&family=GeForce+30+Series+Family">evga rtx 30 series</a></li>
 								<li><a href="https://reddit.com/r/buildapcsales">r/buildapcsales</a></li>
@@ -105,11 +107,11 @@
 					</div>
 				</nav>
 
-				<nav class="bookmarks">
+				<nav class="bookmarks" aria-label="Other bookmarks">
 					<div class="category">
 						<div class="links">
 							<ul>
-								<li class="title" role="heading" aria-level="2">shopping</li>
+								<li class="title"><h2>shopping</h2></li>
 								<li><a href="https://amazon.com">amazon</a></li>
 								<li><a href="https://ebay.com">ebay</a></li>
 								<li><a href="https://bestbuy.com">bestbuy</a></li>
@@ -121,7 +123,7 @@
 					<div class="category">
 						<div class="links">
 							<ul>
-								<li class="title" role="heading" aria-level="2">music</li>
+								<li class="title"><h2>music</h2></li>
 								<li><a href="https://www.radiohead.com">radiohead</a></li>
 								<li><a href="https://www.filiposcar.com">filip oscar</a></li>
 								<li><a href="https://filiposcar.bandcamp.com/">bandcamp</a></li>
@@ -133,7 +135,7 @@
 					<div class="category">
 						<div class="links">
 							<ul>
-								<li class="title" role="heading" aria-level="2">dev</li>
+								<li class="title"><h2>dev</h2></li>
 								<li><a href="https://github.com/">github</a></li>
 								<li><a href="https://stackoverflow.com/">stackoverflow</a></li>
 								<li><a href="https://distrowatch.com/">distrowatch</a></li>
@@ -145,7 +147,7 @@
 					<div class="category">
 						<div class="links">
 							<ul>
-								<li class="title" role="heading" aria-level="2">fun</li>
+								<li class="title"><h2>fun</h2></li>
 								<li><a href="https://monkeytype.com/">monkeytype</a></li>
 								<li><a href="https://twitter.com/">twitter</a></li>
 								<li><a href="https://twitch.tv/">twitch</a></li>
@@ -162,7 +164,7 @@
 			-->
 		</div>
 	</div>
-	<script src="dist/js/async-loader.min.js"></script>
+	<script defer src="dist/js/async-loader.min.js"></script>
 </body>
 
 </html>
