@@ -278,7 +278,7 @@ body.search .head {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 0;
 
   @media (max-width: 1230px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -298,8 +298,8 @@ body.search .head {
   padding: 15px 0 10px;
 
   // Leave all lists available until the carousel enhances them.
-  > ul { margin-bottom: 12px; padding: 5px; }
-  &.slick-initialized > ul { margin-bottom: 0; }
+  > ul { padding: 5px; }
+  > ul + ul { margin-top: 12px; }
 }
 
 .category > .slick-start {
@@ -424,7 +424,8 @@ ul.blur:hover, ul.blur:focus-within { filter: none; }
   }
 }
 
-.slick-start.slick-initialized { margin-bottom: 28px; }
+// Keep the rows compact while leaving clearance for the arrow's focus ring.
+.slick-start.slick-initialized { margin-bottom: 12px; }
 .slick-arrow {
   display: flex;
   align-items: center;
