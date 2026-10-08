@@ -696,6 +696,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   color: var(--color-link);
   font: inherit;
   cursor: pointer;
+  transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out;
 }
 .search-submit:hover {
   color: var(--color-link-hover);
