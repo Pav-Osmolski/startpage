@@ -587,6 +587,10 @@ body.search .head {
   max-width: 100%;
 }
 
+.slick-start .slick-slide {
+  padding: 5px;
+}
+
 ul {
   list-style: none;
   margin: 0;

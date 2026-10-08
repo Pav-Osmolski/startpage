@@ -306,6 +306,11 @@ body.search .head {
   max-width: 100%;
 }
 
+.slick-start .slick-slide {
+  // Keep the 2px outline and 3px offset inside the clipped carousel viewport.
+  padding: 5px;
+}
+
 ul {
   list-style: none;
   margin: 0;
