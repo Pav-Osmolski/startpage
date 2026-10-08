@@ -344,7 +344,7 @@ html.eldenring-ranni {
   --image:url(../../assets/media/eldenring/ranni-the-witch.webp);
   --image-filter:hue-rotate(calc(var(--hue-rotate) / -1)) saturate(0.4) contrast(1.1);
   --color-link:#9c97a0;
-  --color-link-title:#eab2b2;
+  --color-link-title:#d9e0ee;
   --hue-rotate:5deg;
   --scrollbar-primary:#db67aa;
   filter: hue-rotate(var(--hue-rotate)) saturate(2);
