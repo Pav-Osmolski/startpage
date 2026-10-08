@@ -329,6 +329,7 @@ li {
   color: var(--color-link-title);
   h2 { margin: 0; font-size: 20px; font-weight: 400; }
   a:link, a:visited { color: var(--color-link-title); }
+  a:hover, a:focus-visible { color: var(--color-link-hover); }
 }
 
 a {

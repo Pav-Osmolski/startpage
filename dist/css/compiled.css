@@ -615,6 +615,9 @@ li {
 .title a:link, .title a:visited {
   color: var(--color-link-title);
 }
+.title a:hover, .title a:focus-visible {
+  color: var(--color-link-hover);
+}
 
 a {
   color: var(--color-link);
