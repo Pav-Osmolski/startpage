@@ -294,10 +294,11 @@ body.search .head {
 .links {
   width: 100%;
   min-width: 0;
-  padding: 20px 0 10px;
+  // Reserve the same focus-outline space inside plain lists and carousel slides.
+  padding: 15px 0 10px;
 
   // Leave all lists available until the carousel enhances them.
-  > ul { margin-bottom: 12px; }
+  > ul { margin-bottom: 12px; padding: 5px; }
   &.slick-initialized > ul { margin-bottom: 0; }
 }
 
@@ -341,6 +342,11 @@ a {
 .bookmarks a {
   display: inline-block;
   padding: 4px 2px;
+}
+
+.bookmarks .title a {
+  // Linked category headings must have the same height as plain headings.
+  padding-block: 0;
 }
 
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {

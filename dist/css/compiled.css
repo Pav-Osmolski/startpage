@@ -573,10 +573,11 @@ body.search .head {
 .links {
   width: 100%;
   min-width: 0;
-  padding: 20px 0 10px;
+  padding: 15px 0 10px;
 }
 .links > ul {
   margin-bottom: 12px;
+  padding: 5px;
 }
 .links.slick-initialized > ul {
   margin-bottom: 0;
@@ -631,6 +632,10 @@ a:hover, a:focus-visible {
 .bookmarks a {
   display: inline-block;
   padding: 4px 2px;
+}
+
+.bookmarks .title a {
+  padding-block: 0;
 }
 
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
