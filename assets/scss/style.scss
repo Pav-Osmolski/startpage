@@ -362,16 +362,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   margin: 0 0 24px;
 
   p {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
     align-items: center;
     gap: 8px;
     margin: 0;
   }
 
-  .prefix { flex: 0 0 auto; }
+  .prefix { grid-column: 1; grid-row: 1; }
 
   .search-field {
-    flex: 1 1 0;
+    grid-column: 2;
+    grid-row: 1;
     min-width: 0;
     width: 100%;
     padding: 4px;
@@ -384,10 +386,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
   textarea { resize: vertical; min-height: 2.5em; }
 
-  .blinking { order: 0; margin: 0; }
-  .search-field { order: 1; }
-  .search-submit { order: 2; }
-  &:focus-within .blinking { visibility: hidden; }
+  .blinking {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: start;
+    margin: 0;
+    padding: 4px;
+    line-height: 1.2;
+    pointer-events: none;
+  }
+  .search-submit { grid-column: 3; grid-row: 1; }
+  &:focus-within .blinking,
+  .search-field:valid ~ .blinking { visibility: hidden; }
 }
 
 .search-submit {

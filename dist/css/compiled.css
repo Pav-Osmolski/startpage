@@ -652,16 +652,19 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   margin: 0 0 24px;
 }
 #search p {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 8px;
   margin: 0;
 }
 #search .prefix {
-  flex: 0 0 auto;
+  grid-column: 1;
+  grid-row: 1;
 }
 #search .search-field {
-  flex: 1 1 0;
+  grid-column: 2;
+  grid-row: 1;
   min-width: 0;
   width: 100%;
   padding: 4px;
@@ -676,16 +679,20 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   min-height: 2.5em;
 }
 #search .blinking {
-  order: 0;
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: start;
   margin: 0;
-}
-#search .search-field {
-  order: 1;
+  padding: 4px;
+  line-height: 1.2;
+  pointer-events: none;
 }
 #search .search-submit {
-  order: 2;
+  grid-column: 3;
+  grid-row: 1;
 }
-#search:focus-within .blinking {
+#search:focus-within .blinking,
+#search .search-field:valid ~ .blinking {
   visibility: hidden;
 }
 
