@@ -674,6 +674,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   font: inherit;
   line-height: 1.2;
 }
+#search .search-field.no-outline {
+  outline: none;
+}
 #search textarea {
   resize: vertical;
   min-height: 2.5em;

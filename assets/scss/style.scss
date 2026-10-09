@@ -384,6 +384,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     line-height: 1.2;
   }
 
+  .search-field.no-outline { outline: none; }
+
   textarea { resize: vertical; min-height: 2.5em; }
 
   .blinking {
