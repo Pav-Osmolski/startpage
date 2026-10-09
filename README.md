@@ -94,7 +94,7 @@ Run the watcher and preview in separate terminals. There is no automatic browser
 
 For the optional textarea search, replace the input with the commented textarea, change the label's `for` attribute to `search-textarea`, and add `textarea` to the body classes. Keep only one enabled field named `q`. Enter submits, Shift+Enter adds a line, and IME composition is preserved.
 
-The search field shows a keyboard focus outline by default. To hide it, add the optional `no-outline` class to the input or textarea: `class="search-field no-outline"`. Remove the class to restore the outline. This option affects only the search field.
+The search field hides its outline by default using `class="search-field no-outline"`. Remove the `no-outline` class from the input or textarea to restore the keyboard focus outline. This option affects only the search field.
 
 ## Currently Implemented Theme Classes
 
