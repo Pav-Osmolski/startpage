@@ -353,6 +353,10 @@ a {
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
   outline: 2px solid var(--color-link-hover);
   outline-offset: 3px;
+}
+
+// Use a fallback radius without overriding each control's own shape.
+:where(a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible) {
   border-radius: 3px;
 }
 
